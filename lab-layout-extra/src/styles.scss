@@ -1,0 +1,145 @@
+@import "_base.scss";
+
+body {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+  box-sizing: border-box;
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Roboto", sans-serif;
+}
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: white;
+}
+
+.page-title {
+  background-color:$colorPrimary;
+  color: $color3;
+  padding: 15px;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.page-container {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+}
+
+nav {
+  background-color: $colorSecondary;
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-title {
+  padding: 10px;
+  color: $color3;
+  text-align: center;
+}
+
+.menu-container {
+  position: sticky;
+  top: 0;
+
+  & > ul {
+    padding: 0;
+    margin: 0;
+
+    & li {
+      list-style: none;
+      padding: 10px;
+      background-color: $color4;
+      border: 1px solid $colorBorder;
+
+      &:hover{
+        background-color: $colorPrimary;
+      }
+    }
+  }
+}
+
+main {
+  background-color: $colorSection;
+  padding: 20px;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid grey;
+  width: 150px;
+  padding: 15px;
+  background-color: white;
+  text-align: center;
+
+  & img {
+    border-radius: 50px;
+    margin-bottom: 10px;
+  }
+}
+
+footer {
+  padding: 10px;
+  background-color: $color4;
+}
+
+@media screen and (max-width: 768px) {
+  .toolbar,
+  .menu-title {
+    display: none;
+  }
+
+  nav {
+    position: sticky;
+    top: 0;
+  }
+
+  .page-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+  }
+
+  .menu-container {
+    & > ul {
+      display: flex;
+      gap: 5px;
+      padding: 5px;
+
+      & li {
+        flex-grow: 1;
+        text-align: center;
+      }
+    }
+  }
+
+  .list {
+    flex-direction: column;
+  }
+
+  .card {
+    width: auto;
+    flex-direction: row;
+    gap: 10px;
+
+    & img {
+      margin: 0;
+    }
+  }
+
+  footer {
+    text-align: center;
+  }
+}
